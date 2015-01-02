@@ -44,9 +44,6 @@ When you have one jQuery chain going and modify it with, say,<code>.find()</code
 </code></pre>
 It’s easy to read, because the indentation is significant and matches up with DOM nesting levels. It gets rid of unnecessary DOM lookups. But most importantly for me, it feels natural to indent in and out as I write the code, using small additional selectors to step deeper into the DOM and .end() to find my way back out.
 
-Namespacing a bound event handler
-------
-
 Values you can pass to the jQuery method
 ------
 
@@ -60,9 +57,6 @@ jQuery effects queue
 ------
 
 Queues in jQuery are used for animations. You can use them for any purpose you like. They are an array of functions stored on a per element basis, using jQuery.data(). They are First In, First Out (FIFO). You can add a function to the queue by calling .queue(), and you remove (by calling) the functions using .dequeue().
-
-Differences between .get(), [], and .eq()
-------
 
 Differences between .bind(), .live(), .delegate() and .on
 ------
@@ -81,23 +75,8 @@ $.fn === $.prototype and is used to extend jQuery with your own methods.
 Optimize this selector:
 <pre>$(".foo div#bar:eq(0)")</pre> 
  
-<h2>CODE</h2>
-<pre>modulo(12, 5) // 2</pre>
-<h4> Implement a modulo function that satisfies the above</h4>
-<pre>"i'm a lasagna hog".split("").reverse().join("");</pre>
-<h4>Question: What value is returned from the above statement?</h4>
-Answer: "goh angasal a m'i"
-<pre>( window.foo || ( window.foo = "bar" ) );</pre>
-window.foo is undefined initially so it becomes “bar”
-<h4>Question: What is the value of window.foo?</h4>
-Answer: "bar" (only if window.foo was falsey otherwise it will retain its value)
-<pre>var foo = "Hello"; (function() { var bar = " World"; alert(foo + bar); })(); alert(foo + bar);</pre>
-Question: What is the outcome of the two alerts above?
-
-Answer: "Hello World" &amp; ReferenceError: bar is not defined
-<pre>var foo = [];
-foo.push(1);
-foo.push(2);</pre>
-<h4>Question: What is the value of foo.length?</h4>
-Answer: 2
-
+Differences between .get(), [], and .eq()
+------ 
+ 
+Namespacing a bound event handler
+------
