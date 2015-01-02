@@ -72,9 +72,6 @@ Difference between $ and $.fn
 
 $.fn === $.prototype and is used to extend jQuery with your own methods.
 
-Optimize this selector:
-<pre>$(".foo div#bar:eq(0)")</pre> 
- 
 Differences between .get(), [], and .eq()
 ------ 
  
