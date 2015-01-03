@@ -1,4 +1,18 @@
-Chaining
+<a name='toc'>Table of Contents</a>
+------
+
+1. [Chaining](#chaining)
+1. [Deferreds](#deferreds)
+1. [jQuery specific optimizations](#optimizations)
+1. [.end()](#end)
+1. [Values you can pass to the jQuery method](#values)
+1. [jQuery effects queue](#effects)
+1. [Differences between .bind(), .live(), .delegate() and .on](#bindlive)
+1. [Difference between $ and $.fn](#fn)
+1. [Differences between .get() and .eq()](#geteq)
+1. [Namespacing a bound event handler](#namespacing)
+
+<a name='chaining'>Chaining<a/>
 ------
  
 Chaining links 2 or more jQuery actions or methods into a single statement by appending the previous action. e.g.
@@ -8,19 +22,19 @@ Chaining links 2 or more jQuery actions or methods into a single statement by ap
     .fadeOut();
 </code></pre>
     
-Deferreds
+<a name='deferreds'>Deferreds<a/>
 ------
 
 The Deferred object, introduced in jQuery 1.5, is a chainable utility object created by calling the jQuery.Deferred() method. It can register multiple callbacks into callback queues, invoke callback queues, and relay the success or failure state of any synchronous or asynchronous function.
 
-jQuery specific optimizations
+<a name='optimizations'>jQuery specific optimizations<a/>
 
 *  Optimize selectors to descend from an id if possible.
 *  Use tag names when selecting classes and don’t use an excessive number of selectors.
 *  Define variables instead of selecting the same object repeatedly.
 *  Optimize your code replacing repetition with object oriented functions.
 
-.end()
+<a name='end'>.end()<a/>
 ------
 
 When you have one jQuery chain going and modify it with, say,<code>.find()</code>, <em>you’re actually pushing the new chained set of elements onto a stack</em>. <code>.end()</code> pops the current jQuery chain off the stack, which lets you do stuff like this:
@@ -44,7 +58,7 @@ When you have one jQuery chain going and modify it with, say,<code>.find()</code
 </code></pre>
 It’s easy to read, because the indentation is significant and matches up with DOM nesting levels. It gets rid of unnecessary DOM lookups. But most importantly for me, it feels natural to indent in and out as I write the code, using small additional selectors to step deeper into the DOM and .end() to find my way back out.
 
-Values you can pass to the jQuery method
+<a name='values'>Values you can pass to the jQuery method<a/>
 ------
 
 * Selector (string)
@@ -53,12 +67,12 @@ Values you can pass to the jQuery method
 * HTMLElement
 * object, array, element array, jQuery Object etc.
 
-jQuery effects queue
+<a name='effects'>jQuery effects queue<a/>
 ------
 
 Queues in jQuery are used for animations. You can use them for any purpose you like. They are an array of functions stored on a per element basis, using jQuery.data(). They are First In, First Out (FIFO). You can add a function to the queue by calling .queue(), and you remove (by calling) the functions using .dequeue().
 
-Differences between .bind(), .live(), .delegate() and .on
+<a name='bindlive'>Differences between .bind(), .live(), .delegate() and .on<a/>
 ------
 
 * Using the <code>.bind()</code> method is very costly as it attaches the same event handler to every item matched in your selector
@@ -67,13 +81,13 @@ Differences between .bind(), .live(), .delegate() and .on
 * That the new <code>.on()</code> method is mostly syntax that can mimic <code>.bind()</code>, <code>.live()</code>, or <code>.delegate()</code> depending on how you call it
 * The new direction is to use the new <code>.on</code> method
 
-Difference between $ and $.fn
+<a name='fn'>Difference between $ and $.fn<a/>
 ------
 
 $.fn === $.prototype and is used to extend jQuery with your own methods.
 
-Differences between .get(), [], and .eq()
+<a name='geteq'>Differences between .get(), [], and .eq()<a/>
 ------ 
  
-Namespacing a bound event handler
+<a name='namespacing'>Namespacing a bound event handler</a>
 ------
