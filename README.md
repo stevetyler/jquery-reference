@@ -28,6 +28,7 @@ Chaining links 2 or more jQuery actions or methods into a single statement by ap
 The Deferred object, introduced in jQuery 1.5, is a chainable utility object created by calling the jQuery.Deferred() method. It can register multiple callbacks into callback queues, invoke callback queues, and relay the success or failure state of any synchronous or asynchronous function.
 
 <a name='optimizations'>jQuery specific optimizations<a/>
+------
 
 *  Optimize selectors to descend from an id if possible.
 *  Use tag names when selecting classes and don’t use an excessive number of selectors.
